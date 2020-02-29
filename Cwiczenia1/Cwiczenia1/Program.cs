@@ -9,8 +9,9 @@ namespace Cwiczenia1
     {
         static async Task Main(string[] args) //dodalismy async, bo to dla wątku
         {
+            string url = args.Length > 0 ? args[0] : "https://www.pja.edu.pl";
             var client = new HttpClient(); //do wykonywania zadan http. 
-            var result = await client.GetAsync("https://www.pja.edu.pl"); //odpalane na nowym wątku, zeby nie blokowac
+            var result = await client.GetAsync(url); //odpalane na nowym wątku, zeby nie blokowac
 
             if(result.IsSuccessStatusCode) //dowolna wartosc z kodem 200+
             {
